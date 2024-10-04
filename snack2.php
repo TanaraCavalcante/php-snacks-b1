@@ -1,6 +1,4 @@
-<?php
 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +15,19 @@
         <input type="text" name="name" placeholder="Name">
         <input type="email" name="email" placeholder="E-mail">
         <input type="number" name="age" placeholder="Age">
+        <button>submit</button>
+        <button>reset</button>
     </form>
+
+    <h3>
+    <?php
+    // if(str_contains($_GET["email"], "@",".") && is_numeric($_GET["age"])){
+    //     echo "Acesso Riuscito";
+    // }else{
+    //     echo "Acesso Negato!";
+    // }
+    ?>
+    </h3>
  </section>
 </body>
 </html>
