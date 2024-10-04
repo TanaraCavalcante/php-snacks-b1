@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,7 @@
  <section>
     <form action="snack2.php" method="GET">
         <input type="text" name="name" placeholder="Name">
-        <input type="email" name="email" placeholder="E-mail">
+        <input type="mail" name="email" placeholder="E-mail">
         <input type="number" name="age" placeholder="Age">
         <button>submit</button>
         <button>reset</button>
@@ -21,11 +20,11 @@
 
     <h3>
     <?php
-    // if(str_contains($_GET["email"], "@",".") && is_numeric($_GET["age"])){
-    //     echo "Acesso Riuscito";
-    // }else{
-    //     echo "Acesso Negato!";
-    // }
+        if(strlen($_GET["name"]) > 2 && str_contains($_GET["email"], "@") && str_contains($_GET["email"], ".") && is_numeric($_GET["age"])){
+            echo "Acesso Riuscito";
+         }else{
+            echo "Acesso Negato!";
+         }
     ?>
     </h3>
  </section>

@@ -34,9 +34,11 @@
 <body>
     <section>
         <ul>
-            <li>
-
+            <?php foreach()  { ?>
+            <li> 
+                
             </li>
+            <?php }?>
         </ul>
     </section>
 </body>
