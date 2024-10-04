@@ -1,3 +1,12 @@
+<?php
+        $message = "Benvenuto";
+        if(strlen($_GET["name"]) > 2 && str_contains($_GET["email"], "@") && str_contains($_GET["email"], ".") && is_numeric($_GET["age"])){
+            $message = "Acesso Riuscito";
+         }else{
+            $message = "Acesso Negato!";
+         }
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +24,10 @@
         <input type="mail" name="email" placeholder="E-mail">
         <input type="number" name="age" placeholder="Age">
         <button>submit</button>
-        <button>reset</button>
     </form>
 
     <h3>
-    <?php
-        if(strlen($_GET["name"]) > 2 && str_contains($_GET["email"], "@") && str_contains($_GET["email"], ".") && is_numeric($_GET["age"])){
-            echo "Acesso Riuscito";
-         }else{
-            echo "Acesso Negato!";
-         }
-    ?>
+    <?= $message; ?>
     </h3>
  </section>
 </body>
