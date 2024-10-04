@@ -51,12 +51,22 @@ $posts = [
 </head>
 <body>
    <main>
-     <!-- Sempre que eu tiver um array em um array utilizar a &key para identificar cada titulo, como feito no exemplo a seguir! -->
+     <!-- Sempre que eu tiver um array em um array utilizar a &key  para identificar cada titulo, como feito no exemplo a seguir! -->
         <?php foreach($posts as $datePost => $post) {?>
         <section>
             <h2>
                 <?php echo $datePost; ?>
             </h2>
+            <ul>
+                <!-- Para ciclar um array simples usar a formula simples! ( foreach($arr as $item) ) -->
+                <?php foreach($post as $item){?>
+                <li>
+                    <h3><?php echo $item["title"] ?></h3>
+                    <p><?php echo $item["author"] ?></p>
+                    <p><?php echo $item["text"] ?></p>
+                </li>
+                <?php }?>
+            </ul>
         </section>
         <?php } ?>
    </main>
