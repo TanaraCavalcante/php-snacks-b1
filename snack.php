@@ -1,8 +1,9 @@
-<?php
+<!-- Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post. -->
 
+<?php
 $posts = [
 
-    '10/01/2019' => [
+    "10/01/2019" => [
         [
             'title' => 'Post 1',
             'author' => 'Michele Papagni',
@@ -14,14 +15,14 @@ $posts = [
             'text' => 'Testo post 2'
         ],
     ],
-    '10/02/2019' => [
+    "10/02/2019" => [
         [
             'title' => 'Post 3',
             'author' => 'Michele Papagni',
             'text' => 'Testo post 3'
         ]
     ],
-    '15/05/2019' => [
+    "15/05/2019" => [
         [
             'title' => 'Post 4',
             'author' => 'Michele Papagni',
@@ -50,9 +51,14 @@ $posts = [
 </head>
 <body>
    <main>
+     <!-- Sempre que eu tiver um array em um array utilizar a &key para identificar cada titulo, como feito no exemplo a seguir! -->
+        <?php foreach($posts as $datePost => $post) {?>
         <section>
-        
+            <h2>
+                <?php echo $datePost; ?>
+            </h2>
         </section>
+        <?php } ?>
    </main>
 
 </body>
