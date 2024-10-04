@@ -14,8 +14,9 @@
 
  <section>
     <form action="snack2.php" method="GET">
-        <input type="text" name="name" placeholder="name">
-        <input type="email" name="email">
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="number" name="age" placeholder="Age">
     </form>
  </section>
 </body>
