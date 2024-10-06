@@ -262,15 +262,16 @@ $classi = [
                 <h2><?= $classe?></h2>
                 <ul>
                     <?php foreach($studentsList as $singleStudent){ ?>
-                    <li>
-                        <h4> Id: <?= $singleStudent["id"]?></h4>
-                        <span>Name: <?= $singleStudent["nome"]?></span>
-                        <span><?= $singleStudent["cognome"]?></span>
-                        <p>Age: <?= $singleStudent["anni"]?></p>
-                        <p>Average vote: <?= $singleStudent["voto_medio"]?></p>
-                        <p>Favorite language: <?= $singleStudent["linguaggio_preferito"]?></p>
-                        
-                    </li>
+                        <?php if($singleStudent["voto_medio"]>= 6){ ?>
+                        <li>
+                            <h4> Id: <?= $singleStudent["id"]?></h4>
+                            <span>Name: <?= $singleStudent["nome"]?></span>
+                            <span><?= $singleStudent["cognome"]?></span>
+                            <p>Age: <?= $singleStudent["anni"]?></p>
+                            <p>Average vote: <?= $singleStudent["voto_medio"]?></p>
+                            <p>Favorite language: <?= $singleStudent["linguaggio_preferito"]?></p>
+                        </li>
+                        <?php } ?>
                     <?php } ?>
                 </ul>
             <?php } ?>
