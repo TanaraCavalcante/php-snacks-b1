@@ -247,33 +247,54 @@ $classi = [
 ];
 ?>
 
+<?php
+// Variàveis:
+$voto = $_GET["voto"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snack 04</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 <body>
-
-    <main>
-        <section>
+    <header class="py-3">
+        <h1>HighSchool</h1>
+    </header>
+    <main class="container">
+        <form action="snack4.php" method="get" class="mb-3">
+            <div class="mb-3">
+                <label for="max-voto" class="form-label">Maximum vote</label>
+                <input type="number" name="voto" class="form-control" id="max-voto" aria-describedby="voto-help">
+                <div id="voto-help" class="form-text">Filter students by entering the maximum vote desired.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </form>
+        <section> 
             <?php foreach($classi as $classe => $studentsList) {?>
-                <h2><?= $classe?></h2>
-                <ul>
-                    <?php foreach($studentsList as $singleStudent){ ?>
-                        <?php if($singleStudent["voto_medio"]>= 6){ ?>
-                        <li>
-                            <h4> Id: <?= $singleStudent["id"]?></h4>
-                            <span>Name: <?= $singleStudent["nome"]?></span>
-                            <span><?= $singleStudent["cognome"]?></span>
-                            <p>Age: <?= $singleStudent["anni"]?></p>
-                            <p>Average vote: <?= $singleStudent["voto_medio"]?></p>
-                            <p>Favorite language: <?= $singleStudent["linguaggio_preferito"]?></p>
-                        </li>
+                <div class="card mb-3 p-3" style="width: 18rem;">
+                    <h2 class="card-title text-center mb-4"><?= $classe?></h2>
+                    <ul class="list-unstyled">
+                        <?php foreach($studentsList as $singleStudent){ ?>
+                            <?php if($singleStudent["voto_medio"] <= $voto) { ?>
+                            <li>
+                                <h4 class="card-subtitle text-body-secondary mb-2">Student: <?= $singleStudent["id"]?></h4>
+                                <span><b>Name:</b> <?= $singleStudent["nome"]?></span>
+                                <span><?= $singleStudent["cognome"]?></span>
+                                <p class="mb-0"><b>Age:</b> <?= $singleStudent["anni"]?></p>
+                                <p class="mb-0"><b>Average vote: </b><?= $singleStudent["voto_medio"]?></p>
+                                <p class="mb-4"><b>Favorite language: </b><?= $singleStudent["linguaggio_preferito"]?></p>
+                            </li>
+                            <?php } ?>
                         <?php } ?>
-                    <?php } ?>
-                </ul>
+                    </ul>
+                </div>
             <?php } ?>
         </section>
     </main>
