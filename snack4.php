@@ -250,6 +250,8 @@ $classi = [
 <?php
 // Variàveis:
 $voto = $_GET["voto"];
+$language = strtoupper($_GET["language"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -273,6 +275,11 @@ $voto = $_GET["voto"];
                 <input type="number" name="voto" class="form-control" id="max-voto" aria-describedby="voto-help">
                 <div id="voto-help" class="form-text">Filter students by entering the maximum vote desired.</div>
             </div>
+            <div class="mb-3">
+                <label for="language" class="form-label">Favorite Language</label>
+                <input type="text" name="language" class="form-control" id="language" aria-describedby="language-help">
+                <div id="language-help" class="form-text">Filter students according to programming language.</div>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-secondary">Reset</button>
         </form>
@@ -282,15 +289,15 @@ $voto = $_GET["voto"];
                     <h2 class="card-title text-center mb-4"><?= $classe?></h2>
                     <ul class="list-unstyled">
                         <?php foreach($studentsList as $singleStudent){ ?>
-                            <?php if($singleStudent["voto_medio"] <= $voto) { ?>
-                            <li>
-                                <h4 class="card-subtitle text-body-secondary mb-2">Student: <?= $singleStudent["id"]?></h4>
-                                <span><b>Name:</b> <?= $singleStudent["nome"]?></span>
-                                <span><?= $singleStudent["cognome"]?></span>
-                                <p class="mb-0"><b>Age:</b> <?= $singleStudent["anni"]?></p>
-                                <p class="mb-0"><b>Average vote: </b><?= $singleStudent["voto_medio"]?></p>
-                                <p class="mb-4"><b>Favorite language: </b><?= $singleStudent["linguaggio_preferito"]?></p>
-                            </li>
+                            <?php if($singleStudent["voto_medio"] <= $voto && $singleStudent["linguaggio_preferito"] === $language){ ?>
+                                <li>
+                                    <h4 class="card-subtitle text-body-secondary mb-2">Student: <?= $singleStudent["id"]?></h4>
+                                    <span><b>Name:</b> <?= $singleStudent["nome"]?></span>
+                                    <span><?= $singleStudent["cognome"]?></span>
+                                    <p class="mb-0"><b>Age:</b> <?= $singleStudent["anni"]?></p>
+                                    <p class="mb-0"><b>Average vote: </b><?= $singleStudent["voto_medio"]?></p>
+                                    <p class="mb-4"><b>Favorite language: </b><?= $singleStudent["linguaggio_preferito"]?></p>
+                                </li>
                             <?php } ?>
                         <?php } ?>
                     </ul>
